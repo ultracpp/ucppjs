@@ -56,6 +56,19 @@ class ultracpp {
         }
     }
 
+    static runScript(filePath, targetElement) {
+
+        let script = document.createElement("script");
+        script.setAttribute("type", "text/javascript");
+        script.src = filePath;
+
+        let element = document.createElement("shiva-script-runner");
+        document.querySelector(targetElement).append(element)
+        element.append(script)
+        element.parentNode.removeChild(element);
+        return 0;
+    }
+
     render(where = ".root") {
         document.querySelector(where).append(this.element);
     }
